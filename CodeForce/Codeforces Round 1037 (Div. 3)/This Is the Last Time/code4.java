@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class code4 {
@@ -22,25 +21,22 @@ public class code4 {
         ans[i][2] = real;
       }
 
-      Arrays.sort(ans, Comparator.comparingDouble(o -> o[1]));
+      // Arrays.sort(ans, (x, y) -> Integer.compare(x[0], y[0])); // both are same 
+      Arrays.sort(ans, Comparator.comparingDouble(o ->o[0]));
 
-      boolean progress = true;
-      while (progress) {
-        progress = false;
+      int max = k;
 
-        for (int i = 0; i < n; i++) {
-          int li = ans[i][0];
-          int ri = ans[i][1];
-          int real = ans[i][2];
+      for (int i = 0; i < n; i++) {
+        int li = ans[i][0];
+        int ri = ans[i][1];
+        int real = ans[i][2];
 
-          if (k >= li && k <= ri && real > k) {
-            k = real;
-            progress = true;
-          }
+        if (li <= max && max <= ri) {
+          max = Math.max(max, real);
         }
       }
 
-      System.out.println(k);
+      System.out.println(max);
 
     }
 
