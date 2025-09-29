@@ -10,8 +10,23 @@ public class D_A_and_B {
       String s = sc.next();
 
       int cnt = 1;
+      int start = 0;
+      int end = 0;
+      for (int i = 0; i < n; i++) {
+        if (s.charAt(i) != s.charAt(i + 1)) {
+          start = i + 1;
+          break;
+        }
+      }
 
-      for (int i = 0; i < n - 1; i++) {
+      for (int i = n - 1; i >= 0; i--) {
+        if (s.charAt(i) != s.charAt(i - 1)) {
+          end = i - 1;
+          break;
+        }
+      }
+
+      for (int i = start; i < end; i++) {
         if (s.charAt(i) != s.charAt(i + 1)) {
           cnt++;
         }
