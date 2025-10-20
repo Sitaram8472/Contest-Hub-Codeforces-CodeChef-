@@ -12,21 +12,25 @@ public class B_Make_it_Zigzag {
         arr[i] = sc.nextInt();
       }
 
-      int max = arr[0];
-      for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
-          arr[i] = Math.max(max, arr[i]);
-        }
+      int[] prev = new int[n];
+      prev[0] = arr[0];
+      for (int i = 1; i < n; i++) {
+        prev[i] = Math.max(arr[i], prev[i - 1]);
       }
 
-      int cnt = 0;
-      for (int i = 1; i < n - 1; i++) {
-        if (arr[i] < arr[i - 1] && arr[i] < arr[i + 1]) {
-          cnt++;
+      long ans = 0;
+      for (int i = 0; i < n; i += 2) {
+        int diff = -1;
+        if (i > 0) {
+          diff = Math.max(diff, arr[i] - prev[i - 1]);
         }
+        if (i < n - 1) {
+          diff = Math.max(diff, arr[i] - prev[i + 1]);
+        }
+        ans += diff + 1;
       }
 
-      System.out.println(cnt);
+      System.out.println(ans);
 
     }
     sc.close();
