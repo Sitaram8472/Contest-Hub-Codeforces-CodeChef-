@@ -9,23 +9,43 @@ public class Tactical_Conversion {
       int n = sc.nextInt();
       String s = sc.next();
 
-      int one = 0;
-      int zero = 0;
-
+      int start = -1;
+      int end = -1;
       for (int i = 0; i < n; i++) {
         if (s.charAt(i) == '1') {
-          one++;
-        } else {
-          zero++;
+          start = i;
+          break;
+        }
+      }
+      for (int i = n - 1; i >= 0; i--) {
+        if (s.charAt(i) == '1') {
+          end = i;
+          break;
         }
       }
 
-      if (one == n) {
-        System.out.println("No");
-      } else if (s.charAt(n - 2) == '1' && s.charAt(n - 1) == '1' && zero == n - one) {
-        System.out.println("NO");
-      } else {
+      if (start == -1) {
         System.out.println("YES");
+        continue;
+      }
+      boolean ok = false;
+      for (int i = start; i <= end; i++) {
+        if (s.charAt(i) == '0') {
+          ok = true;
+          break;
+        }
+      }
+
+      if (ok) {
+        System.out.println("YES");
+      } else {
+        int k = end - start + 1;
+        if (k == 2 || k == 3) {
+          System.out.println("No");
+        } else {
+          System.out.println("Yes");
+        }
+
       }
 
     }
