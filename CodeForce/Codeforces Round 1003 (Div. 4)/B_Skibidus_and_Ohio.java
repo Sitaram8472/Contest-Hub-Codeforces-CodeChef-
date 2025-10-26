@@ -7,21 +7,21 @@ public class B_Skibidus_and_Ohio {
     int t = sc.nextInt();
     while (t-- > 0) {
       String s = sc.next();
-      StringBuilder sb = new StringBuilder(s);
 
-      for (int i = 0; i < s.length(); i++) {
-        if (!sb.isEmpty() && sb.charAt(sb.length() - 1) == s.charAt(i)) {
-          sb.delete(sb.length() - 1, sb.length());
-        } else {
-          sb.append(s.charAt(i));
-        }
-
-      }
-      if (sb.isEmpty()) {
+      if (s.length() == 1) {
         System.out.println(1);
         continue;
       }
-      System.out.println(sb.length());
+
+      boolean found = false;
+      for (int i = s.length() - 1; i > 0; i--) {
+        if (s.charAt(i) == s.charAt(i - 1)) {
+          found = true;
+          break;
+        }
+      }
+
+      System.out.println(found ? 1 : s.length());
     }
     sc.close();
   }
