@@ -1,0 +1,1 @@
+{"name":"Local: BinaryFlip","url":"d:\\Contest-HUB\\CodeChef\\Starters 212\\BinaryFlip.java","tests":[{"id":1762960629028,"input":"6\n1\n1\n2\n2 1\n3\n3 2 1\n3\n1 3 2\n4\n1 4 3 2\n5\n1 5 3 4 2","output":"0\n0\n0\n1\n2\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Contest-HUB\\CodeChef\\Starters 212\\BinaryFlip.java","group":"local","local":true}
