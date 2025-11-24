@@ -33,31 +33,22 @@ public class C_1_Renako_Amaori_and_XOR_Game_easy_version {
                 System.out.println("Tie");
                 continue;
             }
+            int d = 0;
+            int l = -1;
 
             for (int i = 0; i < n; i++) {
-                if (i % 2 != 0) {
-                    if (a[i] != b[i]) {
-                        if (xorA < xorB) {
-                            xorA ^= b[i];
-                            xorB ^= a[i];
-                        }
-                    }
-                } else {
-                    if (a[i] != b[i]) {
-                        if (xorB < xorA) {
-                            xorB ^= a[i];
-                            xorA ^= b[i];
-                        }
-                    }
+                if (a[i] != b[i]) {
+                    d++;
+                    l = i + 1;
                 }
             }
 
-            if (xorA > xorB) {
-                System.out.println("Ajisai");
-            } else if (xorB > xorA) {
-                System.out.println("Mai");
-            } else {
+            if (d % 2 == 0) {
                 System.out.println("Tie");
+            } else if (l % 2 != 0) {
+                System.out.println("Ajisai");
+            } else {
+                System.out.println("Mai");
             }
 
         }
