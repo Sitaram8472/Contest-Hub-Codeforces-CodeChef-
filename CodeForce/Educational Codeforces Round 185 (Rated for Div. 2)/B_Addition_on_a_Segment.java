@@ -8,13 +8,17 @@ public class B_Addition_on_a_Segment {
     while (t-- > 0) {
       int n = sc.nextInt();
       int[] num = new int[n];
-      Set<Integer> s = new HashSet<>();
+      long sum = 0;
+      int cnt = 0;
       for (int i = 0; i < n; i++) {
         num[i] = sc.nextInt();
-        s.add(num[i]);
+        sum += num[i];
+        if (num[i] == 0) {
+          cnt++;
+        }
       }
 
-      System.out.println(s.size());
+      System.out.println(Math.min(sum - n + 1, n - cnt));
 
     }
     sc.close();
