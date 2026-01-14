@@ -9,9 +9,10 @@ public class A_Binary_Array_Game {
       int[] num = new int[n];
       for (int i = 0; i < n; i++) {
         num[i] = sc.nextInt();
+
       }
 
-      System.out.println(num[0] == 1 || num[n - 1] == 1 ? "Alice" : "Bob");
+      System.out.println(num[0] == 0 && num[n - 1] == 0 ? "Bob" : "Alice");
 
     }
     sc.close();
